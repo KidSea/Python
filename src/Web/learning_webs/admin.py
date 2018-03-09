@@ -4,6 +4,7 @@ from django.contrib import admin
 
 from django.contrib import admin
 
-from learning_webs.models import Topic
+from learning_webs.models import Topic,Entry
 
 admin.site.register(Topic)
+admin.site.register(Entry)
