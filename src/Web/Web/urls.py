@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('learning_webs.urls', namespace='learning_webs')),
-    path('admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
+    url(r'', include(('learning_webs.urls','learning_webs'), namespace='learning_webs'))
+    #path('admin/', admin.site.urls),
 ]
