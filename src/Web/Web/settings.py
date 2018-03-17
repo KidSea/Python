@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 我的应用程序
-    'learning_webs'
+    'learning_webs',
+    # 用户
+    'users',
 ]
 
 MIDDLEWARE = [

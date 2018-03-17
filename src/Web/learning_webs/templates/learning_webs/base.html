@@ -9,10 +9,17 @@
 <p>
     <a href="{% url 'learning_webs:index' %}">Learning Webs<br/></a>
 
-    <a href="{% url 'learning_webs:topics' %}">Topics</a>
+    <a href="{% url 'learning_webs:topics' %}">Topics <br/></a>
+    {% if user.is_authenticated %}
+        Hello, {{user.username}}.
+    {% else %}
+        <a href="{% url 'users:login' %}">log in</a>
+    {% endif %}
+
 </p>
 
-{% block content %}{% endblock content %}
+{% block content %}
+{% endblock content %}
 
 </body>
 </html>
