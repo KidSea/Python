@@ -1,0 +1,15 @@
+bin/
+gen/
+build/
+.idea/
+.gradle/
+.settings/
+captures/
+
+*.iml
+local.properties
+.classpath
+.project
+project.properties
+*~
+.DS_Store
