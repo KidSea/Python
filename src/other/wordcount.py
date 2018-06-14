@@ -82,6 +82,3 @@ def list_path(path):
 #     # 路径为绝对路径， 如/home/yuxuehai/Leslie/
 #     path = input("请输入正确的文件路径 \n")
 #     word_count_list(path)
-#     # for key, value in cnt.items():
-#     #     print(key + ": " + str(value))
-#     #list_path(path)
