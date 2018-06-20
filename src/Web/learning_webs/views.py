@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
+from django.shortcuts import render, get_object_or_404
 
 # 在这里创建视图
 
@@ -26,6 +27,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """显示单个主题及其所有的条目"""
+    topic = get_object_or_404(Topic, id=topic_id)
     topic = Topic.objects.get(id=topic_id)
     """确认请求的主题属于当前用户"""
     if topic.owner != request.user:
