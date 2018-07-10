@@ -39,29 +39,29 @@ class Application(Tk):
         self.weight_tip.set('Tip:')
         self.density_tip = StringVar()
         self.density_tip.set('Tip:')
-        self.weight_label = Label(self, height=8, width = 15,text='质量(单位kg):', font="Helvetica 12")
+        self.weight_label = Label(self, height=7, width = 15,text='质量(单位kg):', font="Helvetica 12")
         self.weight_label.place(x = 70 + 30 , y = 0)
         self.weight_entry = Entry(self, width = 25, font="Helvetica 12", validate='focusout')
         self.weight_entry.bind('<Key>', self.judgeWeightText)
         self.weight_entry.place(x = 200 + 30 , y = 55)
-        self.weight_tip_label = Label(self, height=8, width = 10, textvariable = self.weight_tip, font="Helvetica 12")
+        self.weight_tip_label = Label(self, height=7, width = 10, textvariable = self.weight_tip, font="Helvetica 12")
         self.weight_tip_label.place(x = 420 + 30 , y = 0)
-        self.density_label = Label(self, height=5, width = 20,text='密度(单位kg/m3):', font="Helvetica 12")
-        self.density_label.place(x = 50 + 30 , y = 80)
+        self.density_label = Label(self, height=0, width = 0,text='密度(单位kg/m3):', font="Helvetica 12")
+        self.density_label.place(x = 65 + 30 , y = 110)
         self.density_entry = Entry(self, width = 25, font="Helvetica 12", validate='focusout')
         self.density_entry.bind('<Key>', self.judgeDensityText)
         self.density_entry.place(x = 200 + 30, y = 110)
         self.density_tip_label = Label(self, height=5, width = 10, textvariable = self.density_tip, font="Helvetica 12")
-        self.density_tip_label.place(x = 420 + 30 , y = 80)
-        self.liquid_label = Label(self, height=5, width = 20,text='流体:', font="Helvetica 12")
-        self.liquid_label.place(x = 20 + 30, y = 130)
+        self.density_tip_label.place(x = 420 + 30 , y = 75)
+        self.liquid_label = Label(self, height=0, width = 0,text='流体:', font="Helvetica 12")
+        self.liquid_label.place(x = 90 + 30, y = 160)
         self.air_list_box = Combobox(self, width=12, textvariable = StringVar(), font="Helvetica 12")
         self.air_list_box['value'] = air_list
         self.air_list_box['state'] = state
         self.air_list_box.current(0)
         self.air_list_box.place(x = 200 + 30, y = 160)
-        self.caliber_label = Label(self, height=5, width=20, text='风机口径:', font="Helvetica 12")
-        self.caliber_label.place(x=35 + 30, y=180)
+        self.caliber_label = Label(self, height=0, width=0, text='风机口径:', font="Helvetica 12")
+        self.caliber_label.place(x=90 + 30, y=210)
         self.caliber_list_box = Combobox(self, width=12, textvariable=StringVar(), font="Helvetica 12")
         self.caliber_list_box['value'] = wind_size_list
         self.caliber_list_box['state'] = state
@@ -69,8 +69,8 @@ class Application(Tk):
         self.caliber_list_box.place(x=200 + 30, y=210)
         self.alertButton = Button(self, width = 20, text = "计算", command = self.caculate, font="Helvetica 12")
         self.alertButton.place(x = 200 + 30, y = 250)
-        self.result_label = Label(self, height=5, width=20, text='计算结果:', font="Helvetica 12")
-        self.result_label.place(x=35 + 30, y=280)
+        self.result_label = Label(self, height=0, width=0, text='计算结果:', font="Helvetica 12")
+        self.result_label.place(x=90 + 30, y=300)
         self.result_text = Text(self,height=5,width = 25, font="Helvetica 12")
         self.result_text.place(x=200 + 30, y=300)
 
@@ -84,6 +84,7 @@ class Application(Tk):
         d = getDiameter(density, weight)
         Q = getLiquid(weight, density, p, c, r)
         print("value", weight, density, p, c, r, d, Q)
+        self.result_text.insert(INSERT,'d = ' + str(d) + ' Q = ' + str(Q) + '\n')
 
 
     # def judgeWeightText(self):
